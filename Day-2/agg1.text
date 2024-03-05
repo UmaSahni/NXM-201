@@ -1,0 +1,38 @@
+Aggregations
+
+Aggregate : To collect something together, to accumulate.
+
+1. Find something from the db, Then you process (filtering, sorting, etc) on the server side/application side
+
+2. Do this thing with db.
+
+Aggregation 
+    very powerful
+    Aggregation operator
+
+
+pipeline : something flows from one end to other end.
+
+
+https://miro.medium.com/v2/resize:fit:665/1*5ZlDfUiM_uHPW6KwvszS_g.png
+
+   consists of stages
+   The input for each stages, depends on the ouput of the previous stage.
+
+Syntax
+db.orders.find({price : 500})
+db.orders.aggregate([{}, {},{}])
+
+the nth stage works on the output of the n-1th stage.
+
+Operator 
+   Starts with $
+   learning curve - its diffrent from what we have lernt so for.
+
+   {$limit : 5}
+
+1. $limit
+db.orders.aggregate([{$limit:3}, {$limit:1}])
+2. $sort
+
+ db.orders.aggregate([{$sort:{"quantity":-1}}])

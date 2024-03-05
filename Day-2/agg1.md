@@ -687,61 +687,6 @@ Ans : 2 Ways
   }
 ]
 
-</details>
-
-
-``
-<details>
-<summary>Click to expand/collapse</summary>
-
-Content that you want to toggle goes here.
-
-</details>
-
-
-``
-<details>
-<summary>Click to expand/collapse</summary>
-
-Content that you want to toggle goes here.
-
-</details>
-
-
-``
-<details>
-<summary>Click to expand/collapse</summary>
-
-Content that you want to toggle goes here.
-
-</details>
-
-
-``
-<details>
-<summary>Click to expand/collapse</summary>
-
-Content that you want to toggle goes here.
-
-</details>
-
-
-``
-<details>
-<summary>Click to expand/collapse</summary>
-
-Content that you want to toggle goes here.
-
-</details>
-
-
-``
-<details>
-<summary>Click to expand/collapse</summary>
-
-Content that you want to toggle goes here.
-
-</details>
-
+<!-- Basic Parts End Here -->
 
 

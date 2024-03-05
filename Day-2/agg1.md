@@ -42,7 +42,7 @@ db.orders.aggregate([{}, {},{}])
 
 **But If we don't add any stage we will get all data.**
 
-`nxm_201> db.orders.aggregate([])`
+## 1. `nxm_201> db.orders.aggregate([])`
 
 <details>
 <summary>Click to expand/collapse</summary>
@@ -127,7 +127,7 @@ db.orders.aggregate([{}, {},{}])
 # 1. $limit
 db.orders.aggregate([{$limit:3}, {$limit:1}])
 
-`nxm_201> db.orders.aggregate([{$limit:2}])`
+## 1. `nxm_201> db.orders.aggregate([{$limit:2}])`
 
 <details>
 <summary>Click to expand/collapse</summary>
@@ -155,7 +155,7 @@ db.orders.aggregate([{$limit:3}, {$limit:1}])
 
 
 
-`nxm_201> db.orders.aggregate([{$limit:3},{$limit:1}])`
+## 2.`nxm_201> db.orders.aggregate([{$limit:3},{$limit:1}])`
 
 <details>
 <summary>Click to expand/collapse</summary>
@@ -175,7 +175,7 @@ db.orders.aggregate([{$limit:3}, {$limit:1}])
 
 
 
-`nxm_201> db.orders.aggregate([{$limit:0},{$limit:2}])`
+## 3.`nxm_201> db.orders.aggregate([{$limit:0},{$limit:2}])`
 
 ❌ MongoServerError: the limit must be positive
 
@@ -183,7 +183,7 @@ db.orders.aggregate([{$limit:3}, {$limit:1}])
 # 2. $sort
 db.orders.aggregate([{$sort:{"quantity":-1}}])
 
-`db.orders.aggregate([{$sort:{price:-1}}])`
+## 1.`db.orders.aggregate([{$sort:{price:-1}}])`
 
 <details>
 <summary>Click to expand/collapse</summary>
@@ -259,7 +259,7 @@ db.orders.aggregate([{$sort:{"quantity":-1}}])
 
 
 
-`db.orders.aggregate([{$sort:{price:-1}},{$limit:2}])`
+## 2.`db.orders.aggregate([{$sort:{price:-1}},{$limit:2}])`
 
 <details>
 <summary>Click to expand/collapse</summary>
@@ -287,7 +287,7 @@ db.orders.aggregate([{$sort:{"quantity":-1}}])
 
 
 
-`db.orders.aggregate([{$limit:2},{$sort:{price:-1}}])`
+## 3.`db.orders.aggregate([{$limit:2},{$sort:{price:-1}}])`
 
 <details>
 <summary>Click to expand/collapse</summary>
@@ -315,7 +315,7 @@ db.orders.aggregate([{$sort:{"quantity":-1}}])
 
 
 
-`nxm_201> db.orders.aggregate([{$sort:{quantity:-1}}])`
+## 4.`nxm_201> db.orders.aggregate([{$sort:{quantity:-1}}])`
 
 
 <details>
@@ -394,7 +394,7 @@ db.orders.aggregate([{$sort:{"quantity":-1}}])
 
 # 3.Skip
 
-`nxm_201> db.orders.aggregate([{$sort:{quantity:-1}},{$skip:2}])`
+## 1. `nxm_201> db.orders.aggregate([{$sort:{quantity:-1}},{$skip:2}])`
 
 <details>
 <summary>Click to expand/collapse</summary>
@@ -454,7 +454,7 @@ db.orders.aggregate([{$sort:{"quantity":-1}}])
 
 
 
-`db.orders.aggregate([{$skip:4},{$sort:{_id:-1}},{$limit:3}])`
+## 2.`db.orders.aggregate([{$skip:4},{$sort:{_id:-1}},{$limit:3}])`
 
 <details>
 <summary>Click to expand/collapse</summary>
@@ -492,7 +492,7 @@ db.orders.aggregate([{$sort:{"quantity":-1}}])
 
 # 5. $Match
    
-`db.orders.find({size:"small"})`
+## 1.`db.orders.find({size:"small"})`
 
 <details>
 <summary>Click to expand/collapse</summary>
@@ -528,7 +528,7 @@ db.orders.aggregate([{$sort:{"quantity":-1}}])
 
 
 
-`db.orders.aggregate([{$match:{size:"medium"}}])`
+## 2.`db.orders.aggregate([{$match:{size:"medium"}}])`
 
 <details>
 <summary>Click to expand/collapse</summary>
@@ -564,7 +564,7 @@ db.orders.aggregate([{$sort:{"quantity":-1}}])
 
 
 
-`nxm_201> db.orders.aggregate([{$match:{name:"Vegan"}}])`
+## 3.`nxm_201> db.orders.aggregate([{$match:{name:"Vegan"}}])`
 
 <details>
 <summary>Click to expand/collapse</summary>
@@ -592,7 +592,7 @@ db.orders.aggregate([{$sort:{"quantity":-1}}])
 
 
 
-### Find all large size pizzas in increasing order of there prize.
+## Find all large size pizzas in increasing order of there prize.
 
 `nxm_201> db.orders.aggregate([{$match:{size:"large"}}, {$sort:{price:1}}])`
 
@@ -716,9 +716,11 @@ Ans : 2 Ways
 ]
 </pre>
 </details>
-<!-- Basic Parts End Here -->
 
-$group
+<!-- Basic Parts End Here -->
+----------------------------------
+
+# $group
 
 10,000 masai students.
 
@@ -730,7 +732,7 @@ We group it by something, like batch, course, course_time.
 
 So we need to give _id mandatorily.
 
-`db.orders.aggregate([{$group:{_id:"$size"}}])`
+## 1. `db.orders.aggregate([{$group:{_id:"$size"}}])`
 
 <details>
 <summary>Click to expand/collapse</summary>
@@ -744,7 +746,8 @@ So we need to give _id mandatorily.
 
 </details>
 
-`db.orders.aggregate([{$group:{_id:"$name"}}])`
+## 2. `db.orders.aggregate([{$group:{_id:"$name"}}])`
+
 <details>
 <summary>Click to expand/collapse</summary>
 <pre>
@@ -752,9 +755,9 @@ So we need to give _id mandatorily.
 </pre>
 </details>
 
-### Do it Normally 
+## Do it Normally 
 
-#### Find the total number of small size pizzas.
+### Find the total number of small size pizzas.
 
 Ans : 35
 
@@ -763,7 +766,7 @@ Ans : 35
 
 Ans : 3
 
-
+```js
 let total_small = await ordersModel.find({size:"small"})
 
 let totalPizzas = 0
@@ -773,10 +776,16 @@ for (let el of total_small){
 }
 
 res.send({totalPizzas})
-------------------
 
-### Instead of all This
+```
+-----------------------------------
+
+# Power of Aggregation
+
+## Instead of all This
+
 `nxm_201> db.orders.aggregate([{$group:{_id:"$size", totalQty: {$sum: "$quantity"}}}])`
+
 <summary>Click to expand/collapse</summary>
 <pre>
 [
@@ -787,9 +796,10 @@ res.send({totalPizzas})
 </pre>
 </details>
 
-### Q.2 Find the total number of vegan size pizzas
+## Q.2 Find the total number of vegan size pizzas
 (Better way ✅)
 ` db.orders.aggregate([{$match:{name:"Vegan"}},{$group:{_id:"$name", totalQty: {$sum : "$quantity"}}}])`
+
 <details>
 <summary>Click to expand/collapse</summary>
 <pre>
@@ -797,7 +807,7 @@ res.send({totalPizzas})
 </pre>
 </details>
 
-Another way to do same thing
+**Another way to do same thing**
 
 `db.orders.aggregate([{$group:{_id:"$name", totalQty: {$sum : "$quantity"}}},{$match:{name:"Vegan"}}])`
 
@@ -808,7 +818,7 @@ Another way to do same thing
 </pre>
 </details>
 
-### Q.3 Find the total cost of small size pizzas.
+## Q.3 Find the total cost of small size pizzas.
 
 ### Find the state which has the largest population
 

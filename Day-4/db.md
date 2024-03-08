@@ -135,6 +135,7 @@ No Optimisation happening.
 # Which key should be indexed ?
 Ans : One factor unique.
 Something we use frequenty.
+<pre>
 
 {
     id: Object("jjfsfs),
@@ -149,10 +150,10 @@ Something we use frequenty.
     ....
     ....
 }
-
+</pre>
 
 Another example
-
+<pre>
 {
     _id : ObjectID("nnjkkds"),
     city,
@@ -167,7 +168,7 @@ Another example
     ......
     ......
 }
-
+</pre>
 db.collection_name.createIndex()
 
 ``db.zips.createIndex({"pop":1})`

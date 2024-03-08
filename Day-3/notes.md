@@ -92,7 +92,7 @@ else{
 
 Our Moto --> Optimise the at the server level. Make processing as much as possible in the server level.
 
-$lookup operator
+**$lookup operator**
 
 It helps us with relationship.
 
@@ -112,16 +112,15 @@ create 2 collections
 1. users - 2 users
 2. posts - 5 posts
 
-`nxm_201> db.users.insertOne({name:"Uma Sahni", email:"uma@gmail.com", gender:"female"})`
+#### `nxm_201> db.users.insertOne({name:"Uma Sahni", email:"uma@gmail.com", gender:"female"})`
 
-`nxm_201> db.users.insertOne({name:"Ram Bhagawan", email:"ram@gmail.com", gender:"male"})`
+#### `nxm_201> db.users.insertOne({name:"Ram Bhagawan", email:"ram@gmail.com", gender:"male"})`
 
-`nxm_201> db.users.find()`
+#### `nxm_201> db.users.find()`
 
 <details>
   <summary>Click to expand/collapse</summary>
   <pre>
-  
     [
     {
         _id: ObjectId("65e9749e14c45c420b6c57ee"),
@@ -136,17 +135,15 @@ create 2 collections
         gender: 'male'
     }
     ]
-  
   </pre>
   
 </details>
 
-`nxm_201> db.posts.find()`
+#### `nxm_201> db.posts.find()`
 
 <details>
   <summary>Click to expand/collapse</summary>
   <pre>
-  
     [
   {
     _id: ObjectId("65e971e814c45c420b6c57e9"),
@@ -188,7 +185,7 @@ Now this is snytax
 
 db.userCollection.aggregate([{$lookup:{from:"Go and  look to which collection", localField:"What is the comman thing in both collection `key`", foreignField:"In other collection give comman feild `key`", as:"Name to show as array" }}])
 
-`nxm_201> db.users.aggregate([{$lookup:{from:"posts", localField:"email", foreignField:"user_email", as:"allPosts"}}])`
+## `nxm_201> db.users.aggregate([{$lookup:{from:"posts", localField:"email", foreignField:"user_email", as:"allPosts"}}])`
 
 
 <details>

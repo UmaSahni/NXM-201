@@ -10,7 +10,6 @@ Optimisation means make it better.
 What all factors affects the performance of Database ?
 
 Some of this will be in our control.
-
     1. Amount of data 
     2. CPU / Processor
     3. Storage 
@@ -21,15 +20,14 @@ Some of this will be in our control.
         - Bandwidth - 2GB 1Mbps, 100 Mbps
     5. Query
         - Order of stages
-
     zips - cors i2 , 4gb
    
-    [{},{},{},{}] -- > each stages data is stored in Ram (virtual storage).
+ [{},{},{},{}] -- > each stages data is stored in Ram (virtual storage).
 
-    💰 Exprensive 
+💰 Exprensive 
 
-    - RAM > SSD > HHD
-    - Ram - 20 to 25x faster than SSD
+- RAM > SSD > HHD
+ - Ram - 20 to 25x faster than SSD
 
 # Find all the users in the ascending of their age, who's age is less than 20 and who are from Mumbai(city)
 
@@ -172,17 +170,17 @@ Another example
 
 db.collection_name.createIndex()
 
-`db.zips.createIndex({"pop":1})`
+``db.zips.createIndex({"pop":1})`
 
 ## Disadvantages of Indexing
-    - Write/create/Insert query will be slower
-    - Extra space.
-    - Suppose we have 2 collections.
-    - Indexing - B+trees (You need to balance)
+- Write/create/Insert query will be slower
+- Extra space.
+- Suppose we have 2 collections.
+- Indexing - B+trees (You need to balance)
 
     users - health - indexed; This will be slow WHY ?
 
-        57 - kksnnfsnkgsg{}
+  57 - kksnnfsnkgsg{}
 
     user - no index;
 
@@ -191,7 +189,7 @@ db.collection_name.createIndex()
 
  1.   Suppose you need to add 4 pages, in 2nd page -- "armstrong"
 
-    So will you only add pages or do you need to modify something.
+   So will you only add pages or do you need to modify something.
     Go and change the index.
 
  2.    Assume there is 1 more book.
@@ -206,7 +204,7 @@ IXscan
 Explain ->
     db.users.explain()
 
-`nxm_201> db.heros.find({name:"Batman"}).explain("executionStats")`
+### ``nxm_201> db.heros.find({name:"Batman"}).explain("executionStats")``
 
 <details>
   <summary>Click to expand/collapse</summary>

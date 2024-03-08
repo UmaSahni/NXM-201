@@ -10,7 +10,7 @@ Optimisation means make it better.
 What all factors affects the performance of Database ?
 
 Some of this will be in our control.
-    1. Amount of data 
+ 1. Amount of data 
     2. CPU / Processor
     3. Storage 
         - Ram/Memory

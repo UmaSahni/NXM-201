@@ -1,3 +1,4 @@
+<pre>
 db.heros.insertMany([
   {
     "name": "IronMan",
@@ -50,7 +51,7 @@ db.heros.insertMany([
     "metadata": { "favouriteColor": "orange", "age": 44 }
   }
 ])
-
+</pre>
 Documment looks like 
 {
   key : value

@@ -154,5 +154,99 @@ GET Authenticate , /reports
     ? login again
     :jwt.verify() 
                 ?  /reports :
-                
 
+# Refresh Tokens:
+
+    - Why we give Token ? 
+
+    - Token expiry ?
+        - 1 hour After that token will not be valid.
+    - Why do we expire token ?
+        - One kind of security.
+        - Reduce the risk of token leak.
+
+When you login always token new token is generated.
+
+In industry - 7 days on average
+
+Disadvange
+1. Bad user experience
+2. 7 days of token expiry
+the user will don't know when it will expire.
+
+UI form --> ......., ......., .....,  --> when submit button was clicked.
+/ submit.  Token expire.
+
+All data were lost.
+
+# Refresh Token 
+
+/login 
+
+    When user go to /login route he will get two Tokens
+   
+    1. jwt token (7 days expiry)
+    2. Refresh token (28 days expiry)
+
+    expiry of refresh token > expiry of normal token.
+
+# But why to do all this Jhanjhat ????
+
+Ans : Suppose you are traveling in a train then you have 2500 rupees . Will you keep all token at same place ? 
+
+2000 rupees ---> Place A  (Suppose place A money got lost.)
+500 rupees ----> Place B
+
+Why Not ?
+
+What to do A got lost. Use 500 rupees to ATM and get more cash for dinner.
+
+
+Place A is normal token.
+Place B is backup / refresh token.
+
+1. Not having any expiry. Good UX, bad security
+2. Having expiry every 7 days. good security, little inconvience.
+3. Having expiry 7 days with backup token for 28 days. - good security, good ux.
+
+If refresh token gets leaks ?
+
+The Authentication is lost.
+
+Will refresh token use ?
+1. /reports;
+2. /getnewnormaltoken
+
+how long newnormaltoken will be valid ?
+Ans : 7 Days.
+
+Suppose 28 days are passed 
+/login again.
+
+After the 7 days when we give new normal token will do need to give new refresh token ?
+
+Ans : No. Then 28 days never get over.
+
+
+
+------------------------------------------
+
+Fronted work
+
+When the token will be expired you will be getting a message from jwt.
+
+error.message : "token expired"
+
+In fronted developer will quickly check if error.message is "token expired"
+
+then make a request to GET - /getnewnormaltoken 
+Now he will get new token now use that token to /reports or /submit. 
+
+Flow of the user will not break.
+
+
+Is blacklist and refresh token same ?
+No.
+
+blacklist --> logout
+refresh token --> backup token

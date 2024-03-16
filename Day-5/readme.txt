@@ -135,3 +135,24 @@ If token is valid ? we give access to the routes : "Login first"
 
 
 
+# Backlisting
+
+GET Authenticated - /logout
+Make a request to logout
+
+Token we wil have 
+blacklist that token --> mentain a blacklist where you add this token.
+
+From the ui the user has clicked on logout button then 
+
+If the user in the fronted going to /reports route. And the token is not removed from the local stroage. then user should not get response.
+
+jwt.verify(token) , // true
+
+GET Authenticate , /reports
+    first check if __token__ is present in blacklist
+    ? login again
+    :jwt.verify() 
+                ?  /reports :
+                
+

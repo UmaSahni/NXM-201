@@ -3,6 +3,9 @@ const { UserModel } = require("../Models/user.model")
 const bcrypt = require('bcrypt');
 const userRouter = express.Router()
 var jwt = require('jsonwebtoken');
+const {blacklist} = require("../blacklist")
+const {auth} = require("../Middleware/auth.middleware")
+
 
 userRouter.post("/signup", async(req, res)=>{
     const  {email, password} = req.body
@@ -44,5 +47,19 @@ userRouter.post("/login", async (req, res)=>{
         res.send({"msg":"Error in login in"})
     }
 })
+
+userRouter.get("/logout", auth, (req, res)=>{
+    const token = req.headers.authorisation?.split(" ")[1]
+    try {
+        blacklist.push(token)
+        res.send("Logout Successfull")
+    } catch (error) {
+        res.send("Error i logout route")
+    }
+})
+
+
+
+
 
 module.exports = {userRouter}

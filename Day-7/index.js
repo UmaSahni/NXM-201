@@ -140,19 +140,19 @@ app.patch("/offers", auth, async (req, res)=>{
 */
 
 // Seller
-app.get("/salesdata", auth, role, (req, res)=>{
+app.get("/salesdata", auth, role(["seller"]), (req, res)=>{
     
         res.send("seller Data")
    
 })
 
 // ** It should be accessed by both customer and seller GET req
-app.get("/offers",auth, role, (req, res)=>{
+app.get("/offers",auth, role(["customer", "seller"]), (req, res)=>{
         res.send("offers Data")
 })
 
 // ** It should be accessed by seller only PATCH req
-app.patch("/offers",auth, role, (req, res)=>{
+app.patch("/offers",auth, role(["seller"]), (req, res)=>{
         res.send("offers Data")
 })
 

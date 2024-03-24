@@ -14,4 +14,6 @@
 
 [![image.png](https://i.postimg.cc/vDwmzny1/image.png)](https://postimg.cc/T5QG2ppG)
 
+Recovery code :
+5ZMW8CDEPX91QRT7TE1C3MLD
 
